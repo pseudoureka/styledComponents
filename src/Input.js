@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
-const SIZES = {
-  large: 24,
-  medium: 20,
-  small: 16,
-};
-
 const Input = styled.input`
-  font-size: ${({ size }) => SIZES[size] ?? SIZES["medium"]}px;
-  border: 2px solid ${({ error }) => (error ? `#f44336` : `#eeeeee`)};
-  border-radius: ${({ round }) => (round ? `9999px` : `4px`)};
+  border: none;
+  border-bottom: 2px solid ${({ error }) => (error ? `#f44336` : `#eeeeee`)};
+  display: block;
+  font-size: 16px;
   outline: none;
-  padding: 16px;
+  padding: 8px 0;
+  width: 100%;
 
   &:focus {
-    border-color: ${({ error }) => (error ? `#f44336` : `#7760b4`)};
+    border-bottom: 2px solid ${({ error }) => (error ? `#f44336` : `#7760b4`)};
+  }
+  &::placeholder {
+    color: #c4c5cd;
   }
 `;
 
