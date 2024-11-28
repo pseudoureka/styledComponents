@@ -4,6 +4,7 @@ import Link from "./Link";
 import Label from "./Label";
 import Input from "./Input";
 import Button from "./Button";
+import KakaoButton from "./KakaoButton";
 
 const Container = styled.div`
   width: 400px;
@@ -46,6 +47,7 @@ function App() {
           <Input type="password" id="password" name="password" placeholder="비밀번호" />
           <Button>로그인 하기</Button>
         </form>
+        <KakaoButton>카카오 로그인</KakaoButton>
       </Container>
     </>
   );
