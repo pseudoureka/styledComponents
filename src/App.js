@@ -44,8 +44,8 @@ function App() {
           <Label htmlFor="email">이메일</Label>
           <Input type="email" id="email" name="email" placeholder="styled@codeit.kr" />
           <Label htmlFor="password">비밀번호</Label>
-          <Input type="password" id="password" name="password" placeholder="비밀번호" />
-          <Button>로그인 하기</Button>
+          <Input type="password" id="password" name="password" placeholder="******" />
+          <Button type="submit">로그인 하기</Button>
         </form>
         <KakaoButton>카카오 로그인</KakaoButton>
       </Container>

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Button from "./Button";
+import kakaoIcon from "./kakao.svg";
 
 const Icon = styled.img`
   height: 24px;
   width: 24px;
 `;
 
-const KakaoButton = styled(Button)`
+const StyledButton = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +20,17 @@ const KakaoButton = styled(Button)`
 
   &:hover {
     background-color: #fee500;
+    opacity: 0.5;
   }
 `;
+
+function KakaoButton({ className }) {
+  return (
+    <StyledButton className={className}>
+      <Icon src={kakaoIcon} alt="카카오 아이콘" />
+      카카오 로그인
+    </StyledButton>
+  );
+}
 
 export default KakaoButton;
