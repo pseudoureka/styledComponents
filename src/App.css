@@ -1,0 +1,29 @@
+@keyframes placeholder-glow {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.placeholder {
+  animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+.placeholder-item {
+  background-color: #888888;
+  height: 20px;
+  margin: 8px 0;
+}
+
+.a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.b {
+  width: 400px;
+}
+
+.c {
+  width: 200px;
+}

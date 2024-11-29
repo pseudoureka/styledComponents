@@ -1,24 +1,30 @@
 import styled from "styled-components";
-import Input from "./Input";
+import "./App.css";
+import Placeholder, { PlaceholderItem } from "./Placeholder";
 
-const Container = styled.div`
-  ${Input} {
-    margin: 8px;
-  }
+const A = styled(PlaceholderItem)`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+`;
+
+const B = styled(PlaceholderItem)`
+  width: 400px;
+`;
+
+const C = styled(PlaceholderItem)`
+  width: 200px;
 `;
 
 function App() {
   return (
-    <Container>
-      <h2>Size</h2>
-      <Input size="small" />
-      <Input size="medium" />
-      <Input size="large" />
-      <h2>Round</h2>
-      <Input round />
-      <h2>Error</h2>
-      <Input error />
-    </Container>
+    <div>
+      <Placeholder>
+        <A />
+        <B />
+        <C />
+      </Placeholder>
+    </div>
   );
 }
 
