@@ -8,6 +8,7 @@ const Input = styled.input`
   outline: none;
   padding: 8px 0;
   width: 100%;
+  /* background-color: ${({ theme }) => theme.backgroundColor}; */
 
   &:focus {
     border-bottom: 2px solid ${({ error }) => (error ? `#f44336` : `#7760b4`)};
