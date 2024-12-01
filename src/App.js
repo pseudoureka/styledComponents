@@ -1,24 +1,35 @@
 import styled from "styled-components";
+import Button from "./Button";
 import Input from "./Input";
 
 const Container = styled.div`
+  margin: 40px auto;
+  width: 400px;
+
   ${Input} {
-    margin: 8px;
+    box-sizing: border-box;
+    display: block;
+    margin: 8px 0 16px;
+    width: 100%;
   }
 `;
 
 function App() {
   return (
-    <Container>
-      <h2>Size</h2>
-      <Input size="small" />
-      <Input size="medium" />
-      <Input size="large" />
-      <h2>Round</h2>
-      <Input round />
-      <h2>Error</h2>
-      <Input error />
-    </Container>
+    <>
+      <Container>
+        <Button round>Hello Styled!</Button>
+        <br />
+        <Input />
+      </Container>
+      <Container>
+        <h1>로그인</h1>
+        <label htmlFor="email">Email</label>
+        <Input type="email" id="email" placeholder="codeit@gmail.com"></Input>
+        <label htmlFor="password">Password</label>
+        <Input type="password" id="password" placeholder="**********"></Input>
+      </Container>
+    </>
   );
 }
 
