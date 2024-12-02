@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import Spinner from "./Spinner";
 
-const LogButton = styled.button`
+function BaseButton({ loading, children, ...props }) {
+  return <button {...props}>{loading ? <Spinner /> : children}</button>;
+}
+
+const LogButton = styled(BaseButton)`
   background-color: #6500c3;
   border: none;
   color: #ffffff;

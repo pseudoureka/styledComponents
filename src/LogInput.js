@@ -6,6 +6,7 @@ const LogInput = styled.input`
   outline: none;
   padding: 8px 0;
   border-bottom: 2px solid ${({ error }) => (error ? `#ff0000` : `#eeeeee`)};
+  background-color: ${({ theme }) => theme.backgroundColor};
 
   &:focus {
     border-bottom: 2px solid #7760b4;

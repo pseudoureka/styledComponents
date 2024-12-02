@@ -6,6 +6,17 @@ import LogButton from "./LogButton";
 import KakaoButton from "./KakaoButton";
 import { useState } from "react";
 
+const THEMES = {
+  light: {
+    backgroundColor: `#ffffff`,
+    color: `#000000`,
+  },
+  dark: {
+    backgroundColor: "#121212",
+    color: "#ffffff",
+  },
+};
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -13,19 +24,10 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
+    background-color: ${({ theme }) => theme.backgroundColor};
+    color: ${({ theme }) => theme.color}
   }
 `;
-
-const THEMES = {
-  light: {
-    backgroundColor: "#121212",
-    color: "#121212",
-  },
-  dark: {
-    backgroundColor: `#ffffff`,
-    color: `#ffffff`,
-  },
-};
 
 const Container = styled.div`
   margin: 40px auto;
@@ -60,17 +62,28 @@ const Link = styled.a`
 
 function Login() {
   const [theme, setTheme] = useState(THEMES["light"]);
+  const [loading, setLoading] = useState(false);
 
   const handleSelectChange = (e) => {
     const nextThemeName = e.target.value;
-    setTheme(nextThemeName);
+    setTheme(THEMES[nextThemeName]);
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    if (loading === true) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
   };
 
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <select value={theme} onChange={handleSelectChange}>
+        <GlobalStyle />
+        <select onChange={handleSelectChange}>
           <option value="light">라이트 버튼</option>
           <option value="dark">다크 버튼</option>
         </select>
@@ -84,7 +97,9 @@ function Login() {
             <LogInput type="email" id="email" name="email" placeholder="styled@codeit.kr" />
             <Label htmlFor="password">비밀번호</Label>
             <LogInput type="password" id="password" name="password" placeholder="***********" />
-            <LogButton type="submit">로그인 하기</LogButton>
+            <LogButton onClick={handleClick} loading={loading} type="submit">
+              로그인 하기
+            </LogButton>
           </form>
           <KakaoButton>카카오 로그인</KakaoButton>
         </Container>
